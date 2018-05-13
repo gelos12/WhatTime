@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+  <style>
+    .login-clean form {
+      max-width: 320px;
+      width: 90%;
+      margin : 0 auto;
+      background-color:inherit;
+      padding: 40px;
+      border-radius: 4px;
+      color:#505e6c;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+
+    }
+
+    .login-clean .illustration {
+      text-align: center;
+      padding: 0 0 20px;
+      font-size: 100px;
+      
+    }
+
+    .sr-only{
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border:0;
+    }
+
+    .login-clean form .form-control {
+      background: #f7f9fc;
+      border: none;
+      border-bottom : 1px solid #dfe7f1;
+      border-radius: 0;
+      box-shadow: none;
+      outline: none;
+      color: inherit;
+      text-indent: 8px;
+      height: 42px;
+    }
+
+    .login-clean form .forgot:hover, .login-clean form .forgot:active{
+      opacity: 1;
+      text-decoration: none;
+    }
+  </style>
+  {% endblock style %}
+
+{% block content%}
+<div id="content-wrapper">
+  <section id="blog" class="white">
+    <div class="container">
+      <div class="center gap fade-down section-heading">
+        <div class="gap"></div>
+        <!--로그인폼 시작-->
+        <div class="login-clean">
+          <form class="content" method="POST">
+            {% csrf_token %}
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustater mt-4 mb-4">
+              <h3>What Time SignIn</h3>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="email" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            {{ error }}
+            <div class="form-group">
+              <a class="btn btn-primary col-4" href="{% url 'sign_up' %}" role="button" style="background-color:#5a6268; width:40%;">회원가입</a>
+              <button class="btn btn-success col-8" type="submit" style="background-color:#343a40; width:50%">로그인  </button>
+            </div>
+            <a class="forgot" style="font-size:1em">저희 WhatTime 서비는 간단한 회원가입 후 이용하실 수 있습니다.</a>
+          </form>
+        </div>
+        <!--로그인폼 끝-->
+      </div>
+      <div class="gap col-md-4"></div>
+      <div class="gap"></div> 
+    </div>                      
+  </section>
+</div>
+  {% endblock %}
+   

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block bgscript %}
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+	'use strict';
+      	jQuery('body').backstretch([
+	        "{% static 'authpage/img/bg/bg1.jpg'%}",
+	        "{% static 'authpage/img/bg/bg2.jpg'%}",
+	        "{% static 'authpage/img/bg/bg3.jpg'%}",
+	    ], {duration: 5000, fade: 500, centeredY: true });
+
+		$("#mapwrapper").gMap({ controls: false,
+         	scrollwheel: false,
+         	markers: [{ 	
+              	latitude:40.7566,
+				longitude: -73.9863,
+          	icon: { image: "images/marker.png",
+              	iconsize: [44,44],
+          		iconanchor: [12,46],
+          		infowindowanchor: [12, 0] } }],
+          	icon: { 
+              	image: "images/marker.png", 
+             	iconsize: [26, 46],
+              	iconanchor: [12, 46],
+              	infowindowanchor: [12, 0] },
+         	latitude:40.7566,
+         	longitude: -73.9863,
+          	zoom: 14 });
+    });
+    </script>
+{% endblock bgscript %}
+{% block content %}
+
+<section id="main-slider" class="no-margin">
+    <div class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+				<div class="gap"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="carousel-content center centered">
+                                <h2 class="boxed animation animated-item-1 fade-down">What Time에 오신것을 환영합니다.</h2>
+                                <p class="boxed animation animated-item-2 fade-up">가볍고 빠르게 모임 스케쥴링을 지원합니다. 서비스는 로그인 후 이용하실 수 있습니다.</p>
+                                <br>
+								{% if not user.is_authenticated  %}
+                                <a class="btn btn-md animation bounce-in" href="{% url 'sign_in' %}">Sign In</a>
+								{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+        </div><!--/.carousel-inner-->
+    </div><!--/.carousel-->
+</section><!--/#main-slider-->
+{% endblock content %}
+
+</body>
+</html>

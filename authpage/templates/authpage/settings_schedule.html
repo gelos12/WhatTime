@@ -1,0 +1,435 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+
+
+{% block style %}
+    <style type="text/css">
+        .menu_custom{
+            font-weight: 550;
+            font-family: Lato, sans-serif;
+        }
+    </style>
+{% endblock style %}
+{% block bgscript %}
+
+
+{% endblock %}
+{% block content %}
+<div id="content-wrapper">
+    <section id="services" class="white">
+        <div class="container">
+            <div class="gap"></div> 
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="center gap fade-down section-heading">
+                        <h2 class="main-title">SETTINGS</h2>
+                        <hr>
+                        <p>스케쥴 설정시 pc모드에서는 드래그를 지원합니다.</p>
+                    </div>                
+                </div>
+            </div><!--/.row-->
+            <div class="row fade-down">
+                <!-- 환경 설정 탭 -->
+                <div class="setting-menu container mb-2">
+                <!-- 환경 설정 목록 -->
+                    <ul class="setting__tabs nav nav-tabs mx-2 mx-md-3 mx-lg-4 px-2 px-md-3 px-lg-4">
+                        <!-- 회원 정보 수정 -->
+                        <li class="setting__menu nav-item">
+                            <a class="nav-link active menu_custom" href="{% url 'change_password' %}">비밀번호</a>
+                        </li>
+                        <!-- 꾸미기 -->
+                        <li class="setting__menu nav-item">
+                            <a class="nav-link menu_custom" href="{% url 'settings' %}">스케쥴</a>
+                        </li>
+                        <!-- 회원 탈퇴 -->
+                        <li class="setting__menu nav-item">
+                            <a class="nav-link menu_custom" href="{% url 'destroy' user.id %}">탈퇴</a>
+                        </li>
+                    </ul>
+                </div><!--/.setting-menu-->   
+            </div><!--/.row-->
+            
+            <div class="row fade-down"><!--start content-->
+                <div class="gap"></div>
+                <div class="panel panel-default" style="width:80%; margin-left:auto; margin-right:auto";>
+
+                <!-- Default panel contents -->
+                <form>
+                <table class="table text-center table1">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">월</th>
+                            <th scope="col">화</th>
+                            <th scope="col">수</th>
+                            <th scope="col">목</th>
+                            <th scope="col">금</th>
+                            <th scope="col">토</th>
+                            <th scope="col">일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <!--월요일 1-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input chkbox" id="m1" name="mo1">
+                                    <label class="custom-control-label" for="m1"></label>
+                            </div>
+                        </td>
+                        <!--화요일 1-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input checked" id="tu1" name="tu1">
+                                <label class="custom-control-label" for="tu1"></label>
+                            </div>
+                        </td>
+
+                        <!--수요일 1-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input checked" id="we1" name="we1">
+                                <label class="custom-control-label" for="we1"></label>
+                            </div>
+                        </td>
+
+                        <!--목요일 1-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input checked" id="th1" name="th1">
+                                <label class="custom-control-label" for="th1"></label>
+                            </div>
+                        </td>
+                        <!--금요일 1-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input checked" id="fr1" name="fr1">
+                                <label class="custom-control-label" for="fr1"></label>
+                            </div>
+                        </td>
+                        <!--토요일 1-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input checked" id="sa1" name="sa1">
+                                <label class="custom-control-label" for="sa1"></label>
+                            </div>
+                        </td>
+                        <!--일요일 1-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input checked" id="su1" name="su1">
+                                <label class="custom-control-label" for="su1"></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <!--월요일 2-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="mo2" name="mo2" >
+                                    <label class="custom-control-label" for="mo2"></label>
+                            </div>
+                        </td>
+                        <!--화요일 2-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input checked" id="tu2" name="tu2">
+                                <label class="custom-control-label" for="tu2"></label>
+                            </div>
+                        </td>
+
+                        <!--수요일 2-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input checked" id="we2" name="we2">
+                                <label class="custom-control-label" for="we2"></label>
+                            </div>
+                        </td>
+
+                        <!--목요일 2-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input checked" id="th2" name="th2">
+                                <label class="custom-control-label" for="th2"></label>
+                            </div>
+                        </td>
+                        <!--금요일 2-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input checked" id="fr2" name="fr2">
+                                <label class="custom-control-label" for="fr2"></label>
+                            </div>
+                        </td>
+                        <!--토요일 2-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input checked" id="sa2" name="sa2">
+                                <label class="custom-control-label" for="sa2"></label>
+                            </div>
+                        </td>
+                        <!--일요일 2-->
+                        <td>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input checked" id="su2" name="su2">
+                                <label class="custom-control-label" for="su2"></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--tr 3-->
+                    <tr>
+                            <th scope="row">3</th>
+                            <!--월요일 3-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input checked" id="mo3" name="mo3" >
+                                        <label class="custom-control-label" for="mo3"></label>
+                                </div>
+                            </td>
+                            <!--화요일 3-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="tu3" name="tu3">
+                                    <label class="custom-control-label" for="tu3"></label>
+                                </div>
+                            </td>
+            
+                            <!--수요일 3-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="we3" name="we3">
+                                    <label class="custom-control-label" for="we3"></label>
+                                </div>
+                            </td>
+            
+                            <!--목요일 3-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="th3" name="th3">
+                                    <label class="custom-control-label" for="th3"></label>
+                                </div>
+                            </td>
+                            <!--금요일 3-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="fr3" name="fr3">
+                                    <label class="custom-control-label" for="fr3"></label>
+                                </div>
+                            </td>
+                            <!--토요일 3-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="sa3" name="sa3">
+                                    <label class="custom-control-label" for="sa3"></label>
+                                </div>
+                            </td>
+                            <!--일요일 3-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="su3" name="su3">
+                                    <label class="custom-control-label" for="su3"></label>
+                                </div>
+                            </td>
+                        </tr>
+                    <!--tr 4-->
+                    <tr>
+                            <th scope="row">4</th>
+                            <!--월요일 4-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input checked" id="mo4" name="mo4" >
+                                        <label class="custom-control-label" for="mo4"></label>
+                                </div>
+                            </td>
+                            <!--화요일 4-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="tu4" name="tu4">
+                                    <label class="custom-control-label" for="tu4"></label>
+                                </div>
+                            </td>
+            
+                            <!--수요일 4-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="we4" name="we4">
+                                    <label class="custom-control-label" for="we4"></label>
+                                </div>
+                            </td>
+            
+                            <!--목요일 4-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="th4" name="th4">
+                                    <label class="custom-control-label" for="th4"></label>
+                                </div>
+                            </td>
+                            <!--금요일 4-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="fr4" name="fr4">
+                                    <label class="custom-control-label" for="fr4"></label>
+                                </div>
+                            </td>
+                            <!--토요일 4-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="sa4" name="sa4">
+                                    <label class="custom-control-label" for="sa4"></label>
+                                </div>
+                            </td>
+                            <!--일요일 4-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="su4" name="su4">
+                                    <label class="custom-control-label" for="su4"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <!--tr 5-->
+                        <tr>
+                                <th scope="row">5</th>
+                                <!--월요일 5-->
+                                <td>
+                                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                            <input type="checkbox" class="custom-control-input checked" id="mo5" name="mo5" >
+                                            <label class="custom-control-label" for="mo5"></label>
+                                    </div>
+                                </td>
+                                <!--화요일 5-->
+                                <td>
+                                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input checked" id="tu5" name="tu5">
+                                        <label class="custom-control-label" for="tu5"></label>
+                                    </div>
+                                </td>
+                
+                                <!--수요일 5-->
+                                <td>
+                                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input checked" id="we5" name="we5">
+                                        <label class="custom-control-label" for="we5"></label>
+                                    </div>
+                                </td>
+                
+                                <!--목요일 5-->
+                                <td>
+                                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input checked" id="th5" name="th5">
+                                        <label class="custom-control-label" for="th5"></label>
+                                    </div>
+                                </td>
+                                <!--금요일 5-->
+                                <td>
+                                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input checked" id="fr5" name="fr5">
+                                        <label class="custom-control-label" for="fr5"></label>
+                                    </div>
+                                </td>
+                                <!--토요일 5-->
+                                <td>
+                                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input checked" id="sa5" name="sa5">
+                                        <label class="custom-control-label" for="sa5"></label>
+                                    </div>
+                                </td>
+                                <!--일요일 5-->
+                                <td>
+                                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input checked" id="su5" name="su5">
+                                        <label class="custom-control-label" for="su5"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!--tr 6-->
+                        <tr>
+                            <th scope="row">6</th>
+                            <!--월요일 6-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input checked" id="mo6" name="mo6" >
+                                        <label class="custom-control-label" for="mo6"></label>
+                                </div>
+                            </td>
+                            <!--화요일 6-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="tu6" name="tu6">
+                                    <label class="custom-control-label" for="tu6"></label>
+                                </div>
+                            </td>
+            
+                            <!--수요일 6-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="we6" name="we6">
+                                    <label class="custom-control-label" for="we6"></label>
+                                </div>
+                            </td>
+            
+                            <!--목요일 6-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="th6" name="th6">
+                                    <label class="custom-control-label" for="th6"></label>
+                                </div>
+                            </td>
+                            <!--금요일 6-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="fr6" name="fr6">
+                                    <label class="custom-control-label" for="fr6"></label>
+                                </div>
+                            </td>
+                            <!--토요일 6-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="sa6" name="sa6">
+                                    <label class="custom-control-label" for="sa6"></label>
+                                </div>
+                            </td>
+                            <!--일요일 6-->
+                            <td>
+                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input checked" id="su6" name="su6">
+                                    <label class="custom-control-label" for="su6"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+                </form>
+                    <button id="scedule_save" class="btn btn-primary " url="{% url 'settings_update' %}" style="float:right; margin-top:10px;">저장</button>
+                </div>
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section>
+</div>
+  <!-- // 환경 설정 탭 -->
+{% endblock content %}
+
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'authpage/dragcheck.js' %}"></script>
+    <script type="text/javascript" src="{% static 'authpage/schedule_out_ajax.js' %}"></script>
+    
+{% endblock script %}
+    
+
+    
+        <button id="destroy" class="btn btn-danger " url="{% url 'destroy' user.id %}">탈퇴</button>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="{% static 'authpage/destroy_ajax.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+{% extends 'postpage/post_base.html' %}
+{% load static %}
+
+
+
+{% block content_b %}
+<div class="container">
+  <div class="gap"></div>
+    <div class="row fade-up"><!--row-->
+      {% for post in post_list %}
+      <div class="col-md-6">
+        <div class="testimonial-list-item"><!--testimonial-list-->
+          <a class="modalStart" data-toggle="modal" data-target="#post-modal" name="{{post.id}}">
+            <img class="pull-left img-responsive quote-author-list" src="{% static 'postpage/plug.png'%}">
+          </a>
+          <blockquote>
+            <p>[{{post.id}}] {{post.title}}</p>
+            <small>개설: {{post.author}} &nbsp;<i class="fa fa-users">&nbsp;</i><cite title="Source Title">{{post.use_set.count}}명</cite></small>
+          </blockquote>
+        </div><!--/.testimonial-list-->
+      </div><!--/.col-md-6-->
+      
+      {% endfor %}
+      <div class='col-log-12'>
+      <ul class="pagination pagination-lg col-lg-12 col-md-12" style="margin-left: 20px;">
+        {% if post_list.has_previous %}
+        <li>
+          <a href="?page={{ post_list.previous_page_number }}" aria-label="Previous">
+            <i class="fa fa-angle-left"></i>
+          </a>
+        </li>
+        {% else %}
+
+        {% endif %}
+
+        {% for i in post_list.paginator.page_range %}
+          {% if post_list.number == i %}
+            <li class="active"><a href="#">{{i}}</a></li>
+          {% else %}
+            <li><a href="?page={{i}}">{{i}}</a></li>
+          {% endif %}
+        {% endfor %}
+        
+        {% if post_list.has_next %}
+          <li><a href="?page={{ post_list.next_page_number }}" aria-label="Next"><i class="fa fa-angle-right"></i></a></li>
+        {% else %}  
+
+        {% endif %}
+        </ul><!--/.pagination-->
+        </div>
+    </div><!--/.row .fade-up-->
+  </div><!--gap-->
+</div><!--/.container-->
+
+<!-- 모달시작 -->
+  <div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      
+      </div>
+  </div>
+  </div>
+<!--모달끝-->
+{% endblock content_b %}
+
+
+{% block script %}
+  <script type="text/javascript" src="{% static 'postpage/view.js' %}"></script>
+  <script type="text/javascript" src="{% static 'postpage/post_modal_ajax.js' %}"></script>
+{% endblock script %}

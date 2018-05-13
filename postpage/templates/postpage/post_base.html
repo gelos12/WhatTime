@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div id="content-wrapper">
+    <section id="services" class="white">
+        <div class="container">
+            <div class="gap"></div> 
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="center gap fade-down section-heading">
+                        <h2 class="main-title">POST</h2>
+                        <hr>
+                        <p>플러그 버튼을 누르면 모임에 참가할 수 있습니다.</p>
+                    </div>                
+                </div>
+            </div><!--/.row-->
+            <div class="row fade-down">
+                <!-- 메뉴시작 -->
+                <div class="setting-menu container mb-2">
+                <!-- 환경 설정 목록 -->
+                    <ul class="setting__tabs nav nav-tabs">
+                        <li class="setting__menu nav-item"><!--전체-->
+                            <a class="nav-link active menu_custom" href="{% url 'post_list' %}">전체</a>
+                        </li><!--/전체-->
+                        <li class="setting__menu nav-item"><!--내 모임-->
+                            <a class="nav-link menu_custom" href="{% url 'my_post_list' %}">내 모임</a>
+                        </li>
+                        <li class="setting__menu nav-item"><!--내 모임-->
+                            <a class="nav-link menu_custom" href="{% url 'post_edit' %}">개설</a>
+                        </li>
+                    </ul>
+                </div><!--/.setting-menu-->  
+                <div style="float:right">
+                    <form method="GET" class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control" style="background-color:#fff; color:#555; border:1px solid #ccc; border-radius:4px; width:50%; display:inline-bolck; vertical-align:middle; margin: 0 auto 0 auto; float:left;" placeholder="search" name="search">
+                            <button type="submit" class="btn btn-defalut col-4" style="float:right width:30%; margin-left: 5px; background-color:#343a40; color:white;">검색</button>
+                        </div>
+                    </from>
+                    </div>
+            </div><!--/.row-->
+        </div><!--/.container-->
+        <!--자식 컨텐츠 블럭-->
+        {% block content_b %}
+            
+        {% endblock content_b %}
+        <!--/자식 컨텐츠 블럭-->
+    </section>
+
+<div><!--/#content-wrapper-->
+{% endblock content %}
+    

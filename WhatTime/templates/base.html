@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>WhatTime</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pe-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!--자식전용 스타일 추가-->
+    {% block style %}
+    {% endblock style %}
+    <!-- 자식전용 스타일 추가 끝-->
+     <script src='{% static "js/jquery.js" %}'></script>
+
+    <!--배경 전문 스크립트-->
+    {% block bgscript %}
+    {% endblock bgscript %}
+    <!--배경 전문 스크립트-->
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/ico/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/ico/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/ico/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" href="images/ico/apple-touch-icon-57x57.png">
+
+</head><!--/head-->
+<body>
+<div id="preloader"></div>
+    <header class="navbar navbar-inverse navbar-fixed-top " role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                </button>
+                {% if user.is_authenticated  %}
+                    <a class="navbar-brand" href="{% url 'index' %}"><h1><span class="pe-7s-gleam bounce-in"></span> WhatTime</h1></a>
+                {% endif %}
+                {% if not user.is_authenticated  %}
+                    <a class="navbar-brand" href="{% url 'home' %}"><h1><span class="pe-7s-gleam bounce-in"></span> WhatTime</h1></a>
+                {% endif %}
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated  %}
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'post_list' %}">Post</a></li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.email }} <i class="fa fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'settings' %}">setting</a></li>
+                            <li><a href="{% url 'logout' %}">logout</a></li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </header><!--/header-->
+    {% block content %}
+    {% endblock content %}
+    <div id="content-wrapper" style="height:96px">
+        <footer id="footer" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        &copy; 2018 <a target="_blank" title="Sangji Unv.">WhatTime</a>. All Rights Reserved.
+                    </div>
+                    <div class="col-sm-6">
+                        <ul class="pull-right">
+                            <li><a id="gototop" class="gototop" href="#"><i class="fa fa-chevron-up"></i></a></li><!--#gototop-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer><!--/#footer-->
+    </div>
+</div>
+    <!--자식 스크립트 블럭-->
+    {% block script %}
+    {% endblock script %}
+    <!--자식 스크립트 블럭 끝-->
+    <script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/init.js' %}"></script>
+
+
+</body>
+</html>

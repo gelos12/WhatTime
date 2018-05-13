@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">비밀번호</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form method="POST">
+    <div class="form-group">
+      <input type="hidden" id="hidden_url" value="{% url 'post_check' post.id %}">
+      <input id="password_data"type="password" class="form-control" placeholder="Password" style="background-color:#fff; color:#555; border:1px solid #ccc; border-radius:4px; width:50%; display:inline-bolck; vertical-align:middle; margin: 0 auto 0 auto;">
+    </div>
+    <div class="form-group "id="error_list" >
+      <p id="error_p" class="card-text text-muted mb-2 text-center" style="margin: 0 auto 0 auto"></p>
+    </div>
+  </form>
+</div>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+  <button id="send_password" class="btn btn-primary">전송</button>
+</div>
