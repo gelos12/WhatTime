@@ -43,7 +43,6 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser):  
     email = models.EmailField(_('email address'), unique=True, validators=[validate_email])
-    date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
     is_active = models.BooleanField(_('active'), default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)

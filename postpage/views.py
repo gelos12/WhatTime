@@ -78,7 +78,6 @@ def post_edit(request):
 @login_required
 def post_view(request,pk):
     post = Post.objects.get(pk=pk) #먼저 게시글에 대한 정보를 가져온다.
-    user_list = [use.user for use in request.user.use_set.all()]
     context= {'post':post}
     return render(request, 'postpage/post_view.html',context)
 

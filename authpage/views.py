@@ -103,12 +103,9 @@ def settings(request):
     user = request.user.id #유저 아이디 획득
     if request.is_ajax(): #ajax통신여부
         sc = request.POST.getlist('sc[]', None) #비동기식 통신을 통해 날짜 값을 받아온다.
-        print(type(sc))
-        print(sc)
         schedule = SCHEDULE.objects.all()
         schedule = schedule.filter(user_id=user)
         if not schedule: #스케쥴이 만들어져 있지 않다면
-            print("스케쥴 생성작업!")
             schedule = SCHEDULE.objects.create(user_id=user, time=",".join(sc))
             return JsonResponse({'message':True})
         else: #만들어져 있다면

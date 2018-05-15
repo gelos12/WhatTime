@@ -16,7 +16,7 @@ def time_combine(list):
         if len(time)==0:
             #쿼리셋 길이가 0인 유저는 스케쥴 정보가 없는 유저이므로
             #스케쥴 없는 사람 리스트에 추가한다.
-            result['noschedule'].append(user)
+            result['noschedule'].append(user.email)
         else:
             #가져온건 쿼리셋 정보이므로 튜플들의 정보를 가지고있을뿐이다... 따라서 인덱스 접근으로 
             schedule += time[0].time.split(',')

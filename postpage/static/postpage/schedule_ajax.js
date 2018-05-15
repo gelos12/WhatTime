@@ -173,7 +173,12 @@ $(window).on("load", function () {
                 $("#free_time").append("<span id='su_free'>"+"일"+free['일']+"</span>")
             }
 
-            
+            //없는 사용자.
+            if (data.hasOwnProperty('noschedule')){
+                
+                $("#su_free").remove()
+                $("#noschedule").append("<span id='noschedule'>&nbsp; 스케쥴 미설정 : &nbsp;"+data['noschedule']+"</span><br><br>")
+            }
         },
 
         //서버에서 html을 리턴해주지 못했다면
