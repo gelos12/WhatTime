@@ -176,7 +176,7 @@ $(window).on("load", function () {
             if (data.hasOwnProperty('noschedule')){
                 
                 $("#su_free").remove()
-                $("#noschedule").append("<p>&nbsp; 스케쥴 미설정 : &nbsp;"+data['noschedule']+"</p><br><br>")
+                $("#noschedule").append("<p class='noschedule-box'>&nbsp; 스케쥴 미설정 : &nbsp;"+data['noschedule']+"</p><br><br>")
             }
         },
 
