@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 from postpage.forms import PostForm
-from postpage.models import Post,Use
+from postpage.models import Post,Use,Comment
 from authpage.models import SCHEDULE
 from django.http import JsonResponse
 from postpage.etc_def import count, time_combine, blank_time_combin
@@ -35,6 +35,7 @@ def post_list(request):
 #내 POST 리스트
 @login_required
 def my_post_list(request):
+    
     my_post = [use.post for use in Use.objects.all().filter(user_id=request.user.id)]
     search = request.GET.get('search', None)
     if  search is not None: #검색
@@ -78,7 +79,18 @@ def post_edit(request):
 @login_required
 def post_view(request,pk):
     post = Post.objects.get(pk=pk) #먼저 게시글에 대한 정보를 가져온다.
-    context= {'post':post}
+    comments = post.comment_set.all()
+    if request.POST:
+        Comment.objects.create(
+            user = request.user,
+            post = post,
+            message = request.POST.get('message')
+        )    
+    print(comments)
+    context= {
+        'post':post,
+        'comments':comments,
+        }
     return render(request, 'postpage/post_view.html',context)
 
 
@@ -116,9 +128,9 @@ def post_schedule(request):
                     rank2.append(num[0])
                 if num[1] == 3:
                     rank3.append(num[0])
-            print(rank1)
+      
             rank1 = blank_time_combin(rank1)
-            print(rank1)
+
             if len(rank1) >= 3:
                 context['rank1'] = rank1
                 return JsonResponse(context)
@@ -154,11 +166,8 @@ def password_check(request,pk):
         password= request.POST.get('password', None)
         user=request.user.use_set.filter(post_id=pk)
         
-        print(password)
-        print(post.password)
         if password == post.password:
             if not user: #등록이 되어 있지 않다면
                 post.use_set.create(post_id=post.id,user_id=request.user.id)
-            print("실행문의")
             return JsonResponse({'result':'{}/post/'.format(pk)})
     return JsonResponse({'result':'비밀번호가틀렸습니다'})

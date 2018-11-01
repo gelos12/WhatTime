@@ -181,6 +181,26 @@
                                 <div id="noschedule">
                                     
                                 </div>
+                                <div id="comment">
+                                    <ul class="comment_list">
+                                       {% for comment in comments %}
+                                       <hr/>
+                                       <li class="tag-cloud">{{comment.message}}<br/>작성자:{{comment.user}}</li>
+                                       {% endfor %}
+                                    </ul>
+                                    <div class="widget-area no-padding blank">
+                                        <div class="status-upload">
+                                            <form method='POST' action=''>
+                                                {% csrf_token%}
+                                                <textarea name='message' placeholder="기록을 남기시겠습니까?" ></textarea>
+                                                <ul>
+                                                    <h6 class="">{{request.user}}</h6>
+                                                </ul>
+                                                <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> send</button>
+                                            </form>
+                                        </div><!-- Status Upload  -->
+                                    </div><!-- Widget Area -->
+                                </div>
                             </div>
                         </div>
                     </div><!--/.col-md-8-->

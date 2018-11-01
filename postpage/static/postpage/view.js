@@ -17,7 +17,7 @@ function getCookie(name) {
 $(document).on("click", "#send_password", addAnswer);
 
 function addAnswer(e) {
-
+    console.log("발동")
     e.submit;
     e.stopPropagation(); // 같은 영역에 속해있는 중복 클릭 방지
     e.preventDefault();  // 이벤트 진행 중지
@@ -25,7 +25,6 @@ function addAnswer(e) {
     password = $("#password_data").val();
     url = $("#hidden_url").val();
     var csrf = getCookie("csrftoken");
-
 
     $.ajax({
         type: 'post', // post방식으로 전송

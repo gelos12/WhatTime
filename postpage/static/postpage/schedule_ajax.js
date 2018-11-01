@@ -43,7 +43,6 @@ $(window).on("load", function () {
             });
 
             //조율 순위 
-            console.log(data)
             if(data.hasOwnProperty('rank1')){
                 var rank1= data['rank1']
                 if (rank1.hasOwnProperty('월')){
@@ -177,7 +176,7 @@ $(window).on("load", function () {
             if (data.hasOwnProperty('noschedule')){
                 
                 $("#su_free").remove()
-                $("#noschedule").append("<span id='noschedule'>&nbsp; 스케쥴 미설정 : &nbsp;"+data['noschedule']+"</span><br><br>")
+                $("#noschedule").append("<p>&nbsp; 스케쥴 미설정 : &nbsp;"+data['noschedule']+"</p><br><br>")
             }
         },
 
